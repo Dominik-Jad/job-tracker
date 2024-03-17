@@ -27,6 +27,47 @@ const Profile = (props) => {
     }
   }
 
+  const saveCoverLetter = async () => {
+    const { data, error } = await props.supabase
+      .from('cover-letter')
+      .update({ coverLetter: coverLetter })
+      .eq('user', props.session.user.id)
+      .select()
+
+    if (data) {
+      if(data.length == 0){
+        const { data, error } = await props.supabase
+        .from('cover-letter')
+        .insert([{ coverLetter: coverLetter, user: props.session.user.id }])
+
+        if (data) {
+          console.log(data);
+        } else {
+          console.log(error);
+        }
+      }
+      console.log(data);
+    }
+    else {
+      console.log(error);
+    }
+  }
+  const getCoverLetter = async () => {
+    const { data, error } = await props.supabase
+      .from('cover-letter')
+      .select('coverLetter')
+      .eq('user', props.session.user.id);
+
+    if (data) {
+      console.log(data);
+      if (data.length > 0) {
+        setCoverLetter(data[0].coverLetter);
+      }
+    } else {
+      console.log(error);
+    }
+  }
+
   const checkResume = async () => {
     const { data, error } = await props.supabase
       .storage
@@ -82,9 +123,9 @@ const Profile = (props) => {
                   <Page pageNumber={1} />
                 </Document>
                 <div className='col-12'>
-                <button onClick={() => setPdfURL('')}>Close Resume</button>
-                 {/* download pdf button  */}
-                <button onClick={() => window.open(`https://muhmvbrhzksmloawaqcl.supabase.co/storage/v1/object/public/resume/` + pdfURL)}>Download Resume</button>
+                  <button onClick={() => setPdfURL('')}>Close Resume</button>
+                  {/* download pdf button  */}
+                  <button onClick={() => window.open(`https://muhmvbrhzksmloawaqcl.supabase.co/storage/v1/object/public/resume/` + pdfURL)}>Download Resume</button>
                 </div>
               </div>
           }
@@ -101,7 +142,10 @@ const Profile = (props) => {
             size="lg"
             variant="soft"
             value={coverLetter}
+            onChange={(e) => setCoverLetter(e.target.value)}
           />
+          <button onClick={getCoverLetter}>Get Cover Letter</button>
+          <button onClick={saveCoverLetter}>Save Cover Letter</button>
         </div>
       </div>
     </div>
