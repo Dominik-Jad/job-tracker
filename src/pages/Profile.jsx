@@ -59,7 +59,6 @@ const Profile = (props) => {
       .eq('user', props.session.user.id);
 
     if (data) {
-      console.log(data);
       if (data.length > 0) {
         setCoverLetter(data[0].coverLetter);
       }
@@ -68,13 +67,21 @@ const Profile = (props) => {
     }
   }
 
+  const deleteCoverLetter = async () => {
+    const { data, error } = await props.supabase
+      .from('cover-letter')
+      .delete()
+      .eq('user', props.session.user.id);
+
+      setCoverLetter('');
+  }
+
   const checkResume = async () => {
     const { data, error } = await props.supabase
       .storage
       .from('resume')
       .list(props.session.user.id + '/');
     if (data) {
-      console.log(data);
       if (data.length > 0) {
         setIsResumeUploaded(true);
       }
@@ -84,24 +91,21 @@ const Profile = (props) => {
   }
 
   const getResume = async () => {
-    console.log("get resume");
-    console.log(props.session.user.id + '/' + 'resume.pdf');
     const { data, error } = await props.supabase
       .storage
       .from('resume')
       .download(props.session.user.id + '/' + 'resume.pdf')
 
     if (data) {
-      console.log("wow worked")
       setPdfURL(props.session.user.id + '/' + 'resume.pdf');
     } else {
-      console.log("wow not worked")
       console.log(error);
     }
   }
 
   useEffect(() => {
     checkResume();
+    getCoverLetter();
   }, []);
 
   return (
@@ -144,8 +148,8 @@ const Profile = (props) => {
             value={coverLetter}
             onChange={(e) => setCoverLetter(e.target.value)}
           />
-          <button onClick={getCoverLetter}>Get Cover Letter</button>
           <button onClick={saveCoverLetter}>Save Cover Letter</button>
+          <button onClick={deleteCoverLetter}>Delete Cover Letter</button>
         </div>
       </div>
     </div>

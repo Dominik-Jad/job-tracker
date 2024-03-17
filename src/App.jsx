@@ -37,10 +37,13 @@ function App() {
 
   if (!session) {
     return (
-      <Auth supabaseClient={supabase}
-        appearance={{ theme: ThemeSupa }}
-        providers={[]}
-      />
+
+      <div className='container'>
+        <Auth supabaseClient={supabase}
+          appearance={{ theme: ThemeSupa }}
+          providers={[]}
+        />
+      </div>
     )
   }
   else {
