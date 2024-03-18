@@ -51,7 +51,7 @@ function App() {
       <Router>
         <Navbar signout={signout} />
         <Routes>
-          <Route path="/" element={<Tracker />} />
+          <Route path="/" element={<Tracker session={session} supabase={supabase} />} />
           <Route path="profile" element={<Profile session={session} supabase={supabase} />} />
           <Route path="resources" element={<Resources />} />
         </Routes>

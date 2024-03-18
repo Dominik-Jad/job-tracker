@@ -52,6 +52,7 @@ const Profile = (props) => {
       console.log(error);
     }
   }
+  
   const getCoverLetter = async () => {
     const { data, error } = await props.supabase
       .from('cover-letter')

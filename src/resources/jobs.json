@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "user": "b936f149-4f4e-4e90-943f-0d37c2c2cf4f",
+        "company": "Asda",
+        "salary": "1000",
+        "jobTitle": "Doctor",
+        "hours": "40",
+        "location": "Birmingham",
+        "remote": false,
+        "benefits": "Loads of benefits",
+        "description": "Description",
+        "contact": "Dominik ",
+        "startDate": "2024-03-30"
+    },
+    {
+        "id": 2,
+        "user": "b936f149-4f4e-4e90-943f-0d37c2c2cf4f",
+        "company": "HeyCar",
+        "salary": "100000",
+        "jobTitle": "Web Developer",
+        "hours": "40",
+        "location": "Texas",
+        "remote": false,
+        "benefits": "All",
+        "description": "Good job",
+        "contact": "Awaes",
+        "startDate": "2024-04-01"
+    }
+]
