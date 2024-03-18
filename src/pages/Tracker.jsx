@@ -21,14 +21,22 @@ const Tracker = (props) => {
     }
 
     useEffect(() => {
-        getJobs();
+       getJobs();
     }, []);
 
     return (
         <div>
             <h2>Tracker</h2>
             <p>Tracker page content</p>
-            <button onClick={getJobs}>Get Jobs</button>
+            <p>Jobs:</p>
+            <ul className="job-list">
+                {jobs.map((job, index) => (
+                    <li key={index}>{job.jobTitle} - {job.company} - {job.startDate} -
+                    {job.hours} - {job.remote} - {job.salary} - {job.description} - {job.contact}
+                    {job.benefits} - {job.location}
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 }
