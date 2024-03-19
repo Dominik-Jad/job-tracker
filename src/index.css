@@ -16,3 +16,14 @@ div[data-reactroot]{
   font-family: 'Trebuchet MS';
   text-align: center;
 }
+
+.react-pdf__Document {
+  display: inline-block;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  margin: 2em;
+}
+
+.MuiTextarea-root {
+  margin: 2em;
+}
