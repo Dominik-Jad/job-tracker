@@ -30,3 +30,16 @@
     font-weight: 500;
     margin-left: 2rem;
 }
+
+.job {
+    position: relative;
+  }
+  
+  .delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: red;
+    cursor: pointer;
+  }
+  
