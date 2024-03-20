@@ -269,51 +269,55 @@ const Tracker = (props) => {
                 </Button>
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                        <Modal.Title>Add A Job!</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body> <p>Add a new job</p>
-                    <input
-                        name="company"
-                        value={formValues.company}
-                        onChange={handleChange}
-                        placeholder="Company"
-                    />
-                    <input
-                        name="jobTitle"
-                        value={formValues.jobTitle}
-                        onChange={handleChange}
-                        placeholder="Job Title"
-                    />
-                    <input
-                        name="description"
-                        value={formValues.description}
-                        onChange={handleChange}
-                        placeholder="Description"
-                    />
-                    <input
-                        type="number"
-                        name="hours"
-                        min="0" max="99"
-                        value={formValues.hours}
-                        onChange={handleChange}
-                        placeholder="Hours"
-                        keyboardType="numeric"
-                    />
-                    <input
-                        type="checkbox"
-                        name="remote"
-                        checked={formValues.remote}
-                        onChange={handleCheckboxChange}
-                    />
-                    <label htmlFor="remote">Remote</label>
-                    <input
-                        min="0" max="999999"
-                        type="number"
-                        name="salary"
-                        value={formValues.salary}
-                        onChange={handleChange}
-                        placeholder="Salary"
-                    />
+                    <Modal.Body> 
+                    <div className="input-container">
+                        <input
+                            name="company"
+                            value={formValues.company}
+                            onChange={handleChange}
+                            placeholder="Company"
+                        />
+                        <input
+                            name="jobTitle"
+                            value={formValues.jobTitle}
+                            onChange={handleChange}
+                            placeholder="Job Title"
+                        />
+                        <input
+                            name="description"
+                            value={formValues.description}
+                            onChange={handleChange}
+                            placeholder="Description"
+                        />
+                        <input
+                            type="number"
+                            name="hours"
+                            min="0" max="99"
+                            value={formValues.hours}
+                            onChange={handleChange}
+                            placeholder="Hours"
+                            keyboardType="numeric"
+                        />
+                        <div className="checkbox-container">
+                            <input
+                                type="checkbox"
+                                name="remote"
+                                checked={formValues.remote}
+                                onChange={handleCheckboxChange}
+                            />
+                            <label htmlFor="remote">Remote</label>
+                        </div>
+                        <input
+                            min="0" max="999999"
+                            type="number"
+                            name="salary"
+                            value={formValues.salary}
+                            onChange={handleChange}
+                            placeholder="Salary"
+                        />
+                    </div>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
