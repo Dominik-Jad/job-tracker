@@ -27,3 +27,17 @@ div[data-reactroot]{
 .MuiTextarea-root {
   margin: 2em;
 }
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container input {
+  margin-right: 5px;
+}
