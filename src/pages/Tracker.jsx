@@ -30,7 +30,7 @@ const Tracker = (props) => {
        jobTitle : '',
        description : '',
        hours : '',
-       remote : '',
+       remote : false,
        salary : '',
       });
 
@@ -135,7 +135,7 @@ const Tracker = (props) => {
             jobTitle: '',
             description: '',
             hours: '',
-            remote: '',
+            remote: false,
             salary: '',
         });
 
@@ -150,12 +150,31 @@ const Tracker = (props) => {
         });
     };
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false);
+        setFormValues({
+            company: '',
+            jobTitle: '',
+            description: '',
+            hours: '',
+            remote: '',
+            salary: '',
+        });
+    }
+   
     const handleShow = () => setShow(true);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormValues({ ...formValues, [name]: value });
+    };
+
+    const handleCheckboxChange = (e) => {
+        const { name, checked } = e.target;
+        setFormValues(prevState => ({
+            ...prevState,
+            [name]: checked
+        }));
     };
 
     const submitJobs = async () => {
@@ -256,42 +275,48 @@ const Tracker = (props) => {
                         <Modal.Title>Modal heading</Modal.Title>
                     </Modal.Header>
                     <Modal.Body> <p>Add a new job</p>
-                        <input
-                            name="company"
-                            value={formValues.company}
-                            onChange={handleChange}
-                            placeholder="Company"
-                        />
-                        <input
-                            name="jobTitle"
-                            value={formValues.jobTitle}
-                            onChange={handleChange}
-                            placeholder="Job Title"
-                        />
-                        <input
-                            name="description"
-                            value={formValues.description}
-                            onChange={handleChange}
-                            placeholder="Description"
-                        />
-                        <input
-                            name="hours"
-                            value={formValues.hours}
-                            onChange={handleChange}
-                            placeholder="Hours"
-                        />
-                        <input
-                            name="remote"
-                            value={formValues.remote}
-                            onChange={handleChange}
-                            placeholder="Remote"
-                        />
-                        <input
-                            name="salary"
-                            value={formValues.salary}
-                            onChange={handleChange}
-                            placeholder="Salary"
-                        />
+                    <input
+                        name="company"
+                        value={formValues.company}
+                        onChange={handleChange}
+                        placeholder="Company"
+                    />
+                    <input
+                        name="jobTitle"
+                        value={formValues.jobTitle}
+                        onChange={handleChange}
+                        placeholder="Job Title"
+                    />
+                    <input
+                        name="description"
+                        value={formValues.description}
+                        onChange={handleChange}
+                        placeholder="Description"
+                    />
+                    <input
+                        type="number"
+                        name="hours"
+                        min="0" max="99"
+                        value={formValues.hours}
+                        onChange={handleChange}
+                        placeholder="Hours"
+                        keyboardType="numeric"
+                    />
+                    <input
+                        type="checkbox"
+                        name="remote"
+                        checked={formValues.remote}
+                        onChange={handleCheckboxChange}
+                    />
+                    <label htmlFor="remote">Remote</label>
+                    <input
+                        min="0" max="999999"
+                        type="number"
+                        name="salary"
+                        value={formValues.salary}
+                        onChange={handleChange}
+                        placeholder="Salary"
+                    />
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
