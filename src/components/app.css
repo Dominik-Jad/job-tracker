@@ -13,10 +13,11 @@
 }
 
 .droppable-col {
-    width: 100%;
+    width: 95%;
     background-color: #b7d3f0;
     padding: 10px 10px 0 10px;
-    border-radius: 7px;
+    border-radius: 10px;
+    border: black 10px;
     display: flex;
     flex-direction: column;
     min-height: 300px
@@ -26,7 +27,7 @@
     margin-bottom: 10px;
     background-color: yellowgreen;
     color: white;
-    border: 1px solid white;
+    border: 6px solid white;
     padding: 5px;
     border-radius: 7px;
 }
