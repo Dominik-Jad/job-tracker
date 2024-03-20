@@ -245,9 +245,6 @@ const Tracker = (props) => {
                                                                         <p>{`Hours: ${el.hours}`}</p>
                                                                         <p>{`Remote: ${el.remote}`}</p>
                                                                         <p>{`Salary: ${el.salary}`}</p>
-                                                                        <p>{el.status}</p>
-                                                                        <p>{el.idv4}</p>
-                                                                        <p>{el.id}</p>
                                                                         <span className="delete-icon" onClick={() => handleDeleteJob(key, index)}>X</span>
                                                                     </div>
                                                                 );
