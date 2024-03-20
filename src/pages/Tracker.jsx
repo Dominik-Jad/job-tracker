@@ -6,12 +6,12 @@ import { v4 } from "uuid";
 
 const job = {
   id: v4(),
-  name: "Clean the house"
+  name: "Example job 1 "
 }
 
 const job2 = {
   id: v4(),
-  name: "Web developer"
+  name: "Example job 2 "
 }
 
 const Tracker = () => {
@@ -138,5 +138,6 @@ const Tracker = () => {
     </div>
   );
 };
+console.log (useState)
 
 export default Tracker;
