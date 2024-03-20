@@ -1,114 +1,142 @@
-import React from "react";
-import { DragDropContext } from "react-beautiful-dnd";
-import Column from "../components/Kanban/Column";
-import AddJobForm from "../components/Kanban/addJobForm";
+import { useState } from "react";
+import '../components/app.css';
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import _ from "lodash";
+import { v4 } from "uuid";
+
+const job = {
+  id: v4(),
+  name: "Clean the house"
+}
+
+const job2 = {
+  id: v4(),
+  name: "Web developer"
+}
 
 const Tracker = () => {
-    const [Wishlist, setWishlist] = React.useState([]);
-    const [applied, setApplied] = React.useState([]);
-    const [interview, setInterview] = React.useState([]);
-    const [offer, setOffer] = React.useState([]);
-    const [accepted, setAccepted] = React.useState([]);
-    const addJobToWishlist = (job) => {
-        setWishlist((prevWishlist) => [...prevWishlist, job]);
-    };
-    const handleDragEnd = (result) => {
-        const { destination, source, draggableId } = result;
+  const [text, setText] = useState("");
+  const [state, setState] = useState({
+    "wishlist": {
+      title: "Wish List",
+      jobs: [job, job2]
+    },
+    "applied": {
+      title: "Applied",
+      jobs: []
+    },
+    "interview": {
+      title: "Interview",
+      jobs: []
+    },
+    "accepted": {
+      title: "Accepted",
+      jobs: []
+    }
+  });
 
-        if (!destination || source.droppableId === destination.droppableId) return;
-
-        deletePreviousState(source.droppableId, draggableId);
-
-        const job = findItemById(draggableId, [... Wishlist, ...applied, ...offer, ...interview, ...accepted]);
-
-        setNewState(destination.droppableId, job);
-
-    };
-
-    function deletePreviousState(sourceDroppableId, jobId) {
-
-        switch (sourceDroppableId) {
-            case "1":
-                setWishlist(removeItemById(jobId, Wishlist));
-                break;
-            case "2":
-                setApplied(removeItemById(jobId, applied));
-                break;
-            case "3":
-                setInterview(removeItemById(jobId, interview));
-                break;
-            case "4":
-                setOffer(removeItemById(jobId, offer));
-                break;
-            case "5":
-                setAccepted(removeItemById(jobId, accepted));
-                break;
-            default:
-        }
+  const handleDragEnd = ({ destination, source }) => {
+    if (!destination) {
+      return;
     }
 
-        function setNewState(destinationDroppableId, job) {
-            let updatedJob;
-            switch (destinationDroppableId) {
-                case "1":
-                    updatedJob = {
-                       ...job, Wishlist:false};
-                      setApplied(updatedJob, ...applied);
-                      break;
-                case "2":
-                    updatedJob = {
-                        ...job, applied:false};
-                        setInterview(updatedJob, ...interview);
-                        break;
-                case "3":
-                    updatedJob = {
-                        ...job, interview:false};
-                        setOffer(updatedJob, ...offer);
-                        break;
-                case "4":
-                    updatedJob = {
-                        ...job, offer:false};
-                        setAccepted(updatedJob, ...accepted);
-                        break;
-                case "5":
-                    updatedJob = {
-                        ...job, accepted:false};
-                        break;
-                    }
-                }
+    if (destination.index === source.index && destination.droppableId === source.droppableId) {
+      return;
+    }
 
-            
+    // Creating a copy of job before removing it from state
+    const jobCopy = { ...state[source.droppableId].jobs[source.index] };
 
-            function findItemById(id, jobs) {
-                return jobs.find((job) => job.id === id);
-            }
+    setState(prev => {
+      prev = { ...prev };
+      // Remove from previous jobs array
+      prev[source.droppableId].jobs.splice(source.index, 1);
 
-            function removeItemById(id, jobs) {
-                return jobs.filter((job) => job.id!== id);
-            }
-            
-                                
+      // Adding to new jobs array location
+      prev[destination.droppableId].jobs.splice(destination.index, 0, jobCopy);
 
-    return (
-        <DragDropContext onDragEnd={handleDragEnd}>
-            <h3>Job Application Tracker Board</h3>
-            <AddJobForm onAdd={addJobToWishlist} />
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    flexDirection: "row",
+      return prev;
+    });
+  };
+
+  const addJob = () => {
+    setState(prev => {
+      return {
+        ...prev,
+        wishlist: {
+          title: "Wish List",
+          jobs: [
+            {
+              id: v4(),
+              name: text
+            },
+            ...prev.wishlist.jobs
+          ]
+        }
+      };
+    });
+
+    setText("");
+  };
+
+  const handleDeleteJob = (categoryKey, jobIndex) => {
+    setState(prevState => {
+      const newState = { ...prevState };
+      newState[categoryKey].jobs.splice(jobIndex, 1);
+      return newState;
+    });
+  };
+
+  return (
+    <div className="App">
+      <DragDropContext onDragEnd={handleDragEnd}>
+        {_.map(state, (data, key) => {
+          return (
+            <div key={key} className={"column"}>
+              <h3>{data.title}</h3>
+              <Droppable droppableId={key}>
+                {(provided, snapshot) => {
+                  return (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                      className={"droppable-col"}
+                    >
+                      {data.jobs.map((el, index) => {
+                        return (
+                          <Draggable key={el.id} index={index} draggableId={el.id}>
+                            {(provided, snapshot) => {
+                              console.log(snapshot);
+                              return (
+                                <div
+                                  className={`job ${snapshot.isDragging && "dragging"}`}
+                                  ref={provided.innerRef}
+                                  {...provided.draggableProps}
+                                  {...provided.dragHandleProps}
+                                >
+                                  <span>{el.name}</span>
+                                  <span className="delete-icon" onClick={() => handleDeleteJob(key, index)}>x</span>
+                                </div>
+                              );
+                            }}
+                          </Draggable>
+                        );
+                      })}
+                      {provided.placeholder}
+                    </div>
+                  );
                 }}
-            >
-                <Column title="Wishlist" jobs={Wishlist} id="1" />
-                <Column title="Applied" jobs={applied} id="2" />
-                <Column title="Interview" jobs={interview} id="3" />
-                <Column title="Offer" jobs={offer} id="4" />
-                <Column title="Accepted" jobs={accepted} id="5" />
+              </Droppable>
             </div>
-        </DragDropContext>
-    );
+          );
+        })}
+      </DragDropContext>
+      <div>
+        <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+        <button onClick={addJob}>Add</button>
+      </div>
+    </div>
+  );
 };
 
 export default Tracker;

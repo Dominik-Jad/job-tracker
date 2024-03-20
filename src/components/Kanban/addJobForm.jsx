@@ -1,3 +1,4 @@
+
 import { React, useState } from "react";
 const AddJobForm =  ({onAdd}) => {
   const [userInput, setUserInput] = useState({
@@ -39,8 +40,3 @@ const AddJobForm =  ({onAdd}) => {
   );
 };
 export default AddJobForm;
-
-
-
-
-
