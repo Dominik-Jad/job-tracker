@@ -1,34 +1,28 @@
-import React from "react";
 import styled from "styled-components";
 import { Draggable } from "react-beautiful-dnd";
 
 const Container = styled.div`
     border-radius: 10px; 
     padding: 8px;
-    color: #fff;
+    color: black;
     margin-bottom: 8px;
     min-height: 100px;  
     margin-left: 10px;
     margin-right: 10px;
-    background-color: ${props => bgcolorChange(props.color)};
+    background-color: ${props => props.isDragging ? '#b3b3b3' : '#f2f2f2'};
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     cursor: pointer;
-    `;
+`;
 
 const TextContent = styled.div`
     display: flex;
 `;
 
-function bgcolorChange(props) {
-    return props.isDragging 
-    ? '#b3b3b3'
-    :props.Draggable
-} 
 export default function Job({ job, index }) {
     return (
-        <Draggable draggableId={`${job.id}`} key={job.id} index={index}>
+        <Draggable draggableId={`${job.id}`} index={index}>
             {(provided, snapshot) => (
                 <Container
                     {...provided.draggableProps}
@@ -38,7 +32,9 @@ export default function Job({ job, index }) {
                 >
                     <div style={{ display: "flex", justifyContent: "start", padding: "2" }}>
                         <span>
-                            <small>#{job.id} </small>
+                            <small>#{job.id}
+                                   {" "}
+                             </small>
                         </span>
                     </div>
                     <div
@@ -48,7 +44,7 @@ export default function Job({ job, index }) {
                             padding: "2"
                         }}
                     >
-                        <TextContent> {job.title}</TextContent>
+                        <TextContent>{job.title}</TextContent>
                     </div>
                     {job.company}
                     {job.location && (
@@ -56,10 +52,8 @@ export default function Job({ job, index }) {
                             <small>{job.location}</small>
                         </div>
                     )}
-                    {provided.placeholder}
                 </Container>
             )}
         </Draggable>
     );
 }
-

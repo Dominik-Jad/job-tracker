@@ -1,12 +1,11 @@
-import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import Job from "./Job";
 
 const Container = styled.div`
-    background-color: #f2f2f2;
+    background-color: lightblue;
     border-radius: 2px;
-    width: 200px;
+    width: 180px;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -24,7 +23,7 @@ const JobList = styled.div`
         tranition: background-color 0.2s ease;
         background-color: #f2f2f2;
         flex-grow: 1;
-        min-height: 100px;
+        min-height: 300px;
 `;
 
 export default function Column({ title, jobs, id }) {
@@ -45,7 +44,7 @@ export default function Column({ title, jobs, id }) {
                         {...provided.droppableProps}
                         isDraggingOver={provided.isDraggingOver}
                     >
-                        {/* tasks go here (to do ) */}
+                        {/* Jobs go here (to do ) */}
                     </JobList>
                 )}
             </Droppable>
