@@ -2,7 +2,6 @@ import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Tracker from './pages/Tracker';
 import Profile from './pages/Profile';
-import Resources from './pages/Resources';
 import { Auth } from '@supabase/auth-ui-react'
 import { createClient } from '@supabase/supabase-js'
 import { useEffect, useState } from "react";
@@ -53,7 +52,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Tracker session={session} supabase={supabase} />} />
           <Route path="profile" element={<Profile session={session} supabase={supabase} />} />
-          <Route path="resources" element={<Resources />} />
         </Routes>
       </Router>
     )
