@@ -25,22 +25,14 @@
 
 .job {
     margin-bottom: 10px;
-    background-color: yellowgreen;
-    color: white;
+    background-color: #b7d3f0;
+    color: black;
     border: 6px solid white;
     padding: 5px;
     border-radius: 7px;
 }
 
 .job.dragging {
-    background-color: orangered;
-}
-.addJob {
-    background-color: #f0f0f0;
-    color: black;
-    border: 6px solid white;
-    padding: 5px;
-    border-radius: 7px;
-    cursor: pointer;
-    display: inline-block;
+    background-color: #054a94;
+    color: white;
 }

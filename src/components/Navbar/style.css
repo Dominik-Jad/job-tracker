@@ -2,6 +2,7 @@
     background-color: #b7d3f0;
     border-bottom: 1px solid #585858 !important;
     display: flex;
+    margin-bottom: 2em;
 }
 
 .navbar .nav-link {
@@ -26,9 +27,11 @@
 
 .navbar h1{
     color: white;
-    font-size: 1.5rem;
-    font-weight: 500;
+    padding: 0.5em;
     margin-left: 2rem;
+    box-shadow: 0px 0px 4px 0px black;
+    border-radius: 10px;
+    background-color: #054a94;
 }
 
 .job {
