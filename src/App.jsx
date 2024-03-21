@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Footer from './components/Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Tracker from './pages/Tracker';
 import Profile from './pages/Profile';
@@ -55,6 +56,7 @@ function App() {
           <Route path="profile" element={<Profile session={session} supabase={supabase} />} />
           <Route path="resources" element={<Resources/>}/>
         </Routes>
+        <Footer />
       </Router>
     )
   }
