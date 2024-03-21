@@ -54,7 +54,7 @@ div[data-reactroot]{
   border-radius: 10px !important;
   border: 0px;
   box-shadow: 0px 0px 4px 0px black;
-  background-image: linear-gradient(45deg, #98bce2 0%, #98bce2 51%,yellowgreen  100%);
+  background-image: linear-gradient(45deg, #054a94 0%, #98bce2 51%,#b7d3f0  100%);
 }
 
 .navBtn{
@@ -68,7 +68,7 @@ div[data-reactroot]{
   border-radius: 10px;
   border: 0px;
   box-shadow: 0px 0px 4px 0px black;
-  background-image: linear-gradient(45deg, #98bce2 0%, #98bce2 51%,yellowgreen  100%);
+  background-image: linear-gradient(45deg, #054a94 0% ,#b7d3f0  100%);
 }
 
 .navBtn:hover {
@@ -91,4 +91,18 @@ div[data-reactroot]{
 
 .buttonUsers:active {
   transform: scale(0.95);
+}
+
+.supabase-auth-ui_ui-button{
+  padding: 15px 30px;
+  margin: 0 1em !important;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  border: 0px;
+  box-shadow: 0px 0px 4px 0px black;
+  background-image: linear-gradient(45deg, #054a94 0% ,#b7d3f0  100%);
 }

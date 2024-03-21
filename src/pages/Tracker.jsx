@@ -3,7 +3,7 @@ import '../components/app.css';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import _, { random } from "lodash";
 import { v4 } from "uuid";
-import { Modal, Button } from "react-bootstrap";
+import { Modal} from "react-bootstrap";
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';

@@ -9,10 +9,10 @@ const Navbar = (props) => {
       <h1>Jobb Tracker</h1>
       <div className="links">
         <NavLink className="nav-link" to="/">
-          Tracker
+          <button className="navBtn"> Tracker </button>
         </NavLink>
         <NavLink className="nav-link" to="/profile">
-          Profile
+          <button className="navBtn">Profile</button>
         </NavLink>
         <NavLink className="nav-link" to="/">
           <button className="navBtn" onClick={props.signout}>Sign out</button>
