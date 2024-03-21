@@ -121,16 +121,16 @@ const Profile = (props) => {
           }
           <div> {
             pdfURL === '' ? <div>
-              <button onClick={getResume}>Show Resume</button>
+              <button className="buttonUsers" onClick={getResume}>Show Resume</button>
             </div> :
               <div>
                 <Document file={`https://muhmvbrhzksmloawaqcl.supabase.co/storage/v1/object/public/resume/` + pdfURL}>
                   <Page pageNumber={1} />
                 </Document>
                 <div className='col-12'>
-                  <button onClick={() => setPdfURL('')}>Close Resume</button>
+                  <button className="buttonUsers" onClick={() => setPdfURL('')}>Close Resume</button>
                   {/* download pdf button  */}
-                  <button onClick={() => window.open(`https://muhmvbrhzksmloawaqcl.supabase.co/storage/v1/object/public/resume/` + pdfURL)}>Download Resume</button>
+                  <button className="buttonUsers" onClick={() => window.open(`https://muhmvbrhzksmloawaqcl.supabase.co/storage/v1/object/public/resume/` + pdfURL)}>Download Resume</button>
                 </div>
               </div>
           }
@@ -149,8 +149,8 @@ const Profile = (props) => {
             value={coverLetter}
             onChange={(e) => setCoverLetter(e.target.value)}
           />
-          <button onClick={saveCoverLetter}>Save Cover Letter</button>
-          <button onClick={deleteCoverLetter}>Delete Cover Letter</button>
+          <button className="buttonUsers" onClick={saveCoverLetter}>Save Cover Letter</button>
+          <button className="buttonUsers" onClick={deleteCoverLetter}>Delete Cover Letter</button>
         </div>
       </div>
     </div>

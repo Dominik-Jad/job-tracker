@@ -41,3 +41,54 @@ div[data-reactroot]{
 .checkbox-container input {
   margin-right: 5px;
 }
+
+.buttonUsers{
+  padding: 15px 30px;
+  margin: 0 1em !important;
+  margin-bottom: 2em !important;
+  text-align: center;
+  text-transform: uppercase !important;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px !important;
+  border: 0px;
+  box-shadow: 0px 0px 4px 0px black;
+  background-image: linear-gradient(45deg, #98bce2 0%, #98bce2 51%,yellowgreen  100%);
+}
+
+.navBtn{
+  padding: 15px 30px;
+  margin: 0 1em !important;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  border: 0px;
+  box-shadow: 0px 0px 4px 0px black;
+  background-image: linear-gradient(45deg, #98bce2 0%, #98bce2 51%,yellowgreen  100%);
+}
+
+.navBtn:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.navBtn:active {
+  transform: scale(0.95);
+}
+
+.buttonUsers:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.buttonUsers:active {
+  transform: scale(0.95);
+}
