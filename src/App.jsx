@@ -6,6 +6,7 @@ import { Auth } from '@supabase/auth-ui-react'
 import { createClient } from '@supabase/supabase-js'
 import { useEffect, useState } from "react";
 import { ThemeSupa } from '@supabase/auth-ui-shared'
+import Resources from './pages/Resources';
 
 const supabase = createClient(
   'https://muhmvbrhzksmloawaqcl.supabase.co',
@@ -52,6 +53,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Tracker session={session} supabase={supabase} />} />
           <Route path="profile" element={<Profile session={session} supabase={supabase} />} />
+          <Route path="resources" element={<Resources/>}/>
         </Routes>
       </Router>
     )

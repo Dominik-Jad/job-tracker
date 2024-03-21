@@ -14,6 +14,9 @@ const Navbar = (props) => {
         <NavLink className="nav-link" to="/profile">
           <button className="navBtn">Profile</button>
         </NavLink>
+        <NavLink className="nav-link" to="/resources">
+          <button className="navBtn"> Resources </button>
+        </NavLink>
         <NavLink className="nav-link" to="/">
           <button className="navBtn" onClick={props.signout}>Sign out</button>
         </NavLink>

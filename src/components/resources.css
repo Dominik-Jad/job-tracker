@@ -1,0 +1,74 @@
+.resources-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .section-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .resource-list {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .resource-list p {
+    margin-bottom: 10px;
+  }
+  
+  .resource-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .resource-list ul li {
+    margin-bottom: 5px;
+  }
+  
+  .resource-list a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .resource-list a:hover {
+    text-decoration: underline;
+  }
+  
+  .job-websites ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .faq-table {
+    width: 100%;
+  }
+  
+  .faq-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  
+  .faq-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .faq-question {
+    font-weight: bold;
+  }
+  
+  .faq-answer {
+    display: none;
+  }
+  
+  .faq-answer.expanded {
+    display: table-cell;
+  }
+  
