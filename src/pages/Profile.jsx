@@ -151,13 +151,21 @@ const Profile = (props) => {
             pdfURL === '' ?
               <div>
                 {
-                  isResumeUploaded === true ? 
-                  <div>
-                    <button className="buttonUsers" onClick={getResume}>Show Resume</button>
-                    <button className="buttonUsers" onClick={deleteResume}>Delete Resume</button>
-                  </div>
-                  : 
-                  <input type="file" onChange={(e) => uploadResume(e)} /> 
+                  isResumeUploaded === true ?
+                    <div>
+                      <button className="buttonUsers" onClick={getResume}>Show Resume</button>
+                      <button className="buttonUsers" onClick={deleteResume}>Delete Resume</button>
+                    </div>
+                    :
+                    <div>
+                      <label for="file-upload" class="custom-file-upload">
+                        Upload Resume
+                        <input id="file-upload" type="file" onChange={(e) => uploadResume(e)} />
+                      </label>
+                     
+
+                    </div>
+
                 }
               </div> :
               <div>
