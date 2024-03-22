@@ -18,10 +18,12 @@ div[data-reactroot]{
   font-family: 'Roboto', sans-serif;
   text-align: center;
   background-color: #D0D6B3;
+  letter-spacing: 1px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  letter-spacing: 0.1em;
+  letter-spacing: 2px;
+  font-family: serif;
 }
 
 .react-pdf__Document {
