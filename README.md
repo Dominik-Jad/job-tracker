@@ -8,6 +8,7 @@ Welcome to the Job Tracker Group Project! This project is designed to help indiv
 - [Installation](#installation)
 - [Usage](#usage)
 - [Demo Screenshots](#demo-screenshots)
+- [Live Demo](#live-demo)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -45,6 +46,10 @@ To run this project locally, follow these steps:
 ![Resources page ](./src/resources/resources.jpg)
 
 ![Profile](./src/resources/profile.jpg)
+
+## Live demo
+ For a live demo of the web page [click here ](https://jobbtracker.netlify.app/)
+
 
 ## Contributors
 
