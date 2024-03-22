@@ -5,16 +5,17 @@
   }
   
   .section-title {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
+    color: whitesmoke;
+    background-color: #AAAE7F;
+    padding: 0.5em;
   }
   
   .resource-list {
-    background-color: #f9f9f9;
+    background-color: #AAAE7F;
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 20px;
+    color: whitesmoke;
   }
   
   .resource-list p {
@@ -31,12 +32,13 @@
   }
   
   .resource-list a {
-    color: #007bff;
+    color: whitesmoke;
     text-decoration: none;
   }
   
   .resource-list a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: #335255;
   }
   
   .job-websites ul {
@@ -62,10 +64,14 @@
   
   .faq-question {
     font-weight: bold;
+    background-color: #AAAE7F;
+    color: whitesmoke;
   }
   
   .faq-answer {
     display: none;
+    background-color: #AAAE7F;
+    color: whitesmoke;
   }
   
   .faq-answer.expanded {

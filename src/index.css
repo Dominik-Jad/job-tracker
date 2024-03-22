@@ -6,6 +6,8 @@ h2 {
   padding-top: 1rem;
 }
 
+
+
 html,
 body,
 #root,
@@ -13,8 +15,13 @@ body,
 div[data-reactroot]{
   height: 100%;
   width: 100%;
-  font-family: 'Trebuchet MS';
+  font-family: 'Roboto', sans-serif;
   text-align: center;
+  background-color: #D0D6B3;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.1em;
 }
 
 .react-pdf__Document {
@@ -27,7 +34,6 @@ div[data-reactroot]{
 .MuiTextarea-root {
   margin: 2em;
 }
-
 .input-container {
   display: flex;
   flex-direction: column;
@@ -54,7 +60,7 @@ div[data-reactroot]{
   border-radius: 10px !important;
   border: 0px;
   box-shadow: 0px 0px 4px 0px black;
-  background-image: linear-gradient(45deg, #054a94 0%, #98bce2 51%,#b7d3f0  100%);
+  background-image: linear-gradient(45deg, #94976e 0%,#9dd18d  100%);
 }
 
 .navBtn{
@@ -68,7 +74,7 @@ div[data-reactroot]{
   border-radius: 10px;
   border: 0px;
   box-shadow: 0px 0px 4px 0px black;
-  background-image: linear-gradient(45deg, #054a94 0% ,#b7d3f0  100%);
+  background-image: linear-gradient(45deg, #AAAE7F 0% ,#b7d3f0  100%);
 }
 
 .navBtn:hover {
@@ -104,7 +110,7 @@ div[data-reactroot]{
   border-radius: 10px;
   border: 0px;
   box-shadow: 0px 0px 4px 0px black;
-  background-image: linear-gradient(45deg, #054a94 0% ,#b7d3f0  100%);
+  background-image: linear-gradient(45deg, #AAAE7F 0% ,#b7d3f0  100%);
 }
 
 input[type="file"] {
@@ -123,7 +129,7 @@ input[type="file"] {
   border-radius: 10px !important;
   border: 0px;
   box-shadow: 0px 0px 4px 0px black;
-  background-image: linear-gradient(45deg, #054a94 0%, #98bce2 51%,#b7d3f0  100%);
+  background-image: linear-gradient(45deg, #AAAE7F 0% ,#b7d3f0  100%);
 }
 
 .custom-file-upload:hover {
@@ -132,4 +138,29 @@ input[type="file"] {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+}
+
+.MuiTextarea-root {
+  background-color: #AAAE7F !important;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px 20px !important;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color:white !important;
+  background-color: #AAAE7F !important;
+  resize: none;
+}
+
+.supabase-auth-ui_ui-input{
+  background-color: #AAAE7F !important;
+  color: whitesmoke !important;
+}
+
+.supabase-auth-ui_ui-label{
+  color: whitesmoke !important;
+  font-size: 1.2em !important;
 }

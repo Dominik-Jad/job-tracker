@@ -306,7 +306,7 @@ const Tracker = (props) => {
           {_.map(state, (data, key) => {
             return (
               <div key={key} className={"column col-3"}>
-                <h3>{data.title}</h3>
+                <h2>{data.title}</h2>
                 <Droppable droppableId={key}>
                   {(provided, snapshot) => {
                     return (
@@ -327,7 +327,7 @@ const Tracker = (props) => {
                                     {...provided.draggableProps}
                                     {...provided.dragHandleProps}
                                   >
-                                    <h1>{`Company: ${el.company}`}</h1>
+                                    <h3>{`Company: ${el.company}`}</h3>
                                     <p>{`Job Title: ${el.jobTitle}`}</p>
                                     <p>{`Description: ${el.description}`}</p>
                                     <p>{`Hours: ${el.hours}`}</p>

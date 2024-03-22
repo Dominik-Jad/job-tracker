@@ -5,27 +5,23 @@
 .App {
     display: flex;
     width: 100%;
-    justify-content: space-around;
-}
-
-.App .column {
-    width: 30%;
+    justify-content: space-between;
 }
 
 .droppable-col {
     width: 95%;
-    background-color: #b7d3f0;
+    background-color: #AAAE7F;
     padding: 10px 10px 0 10px;
     border-radius: 10px;
     border: black 10px;
     display: flex;
     flex-direction: column;
-    min-height: 300px
+    min-height: 10em;
 }
 
 .job {
     margin-bottom: 10px;
-    background-color: #b7d3f0;
+    background-color: #EFEFEF;
     color: black;
     border: 6px solid white;
     padding: 5px;
@@ -33,6 +29,6 @@
 }
 
 .job.dragging {
-    background-color: #054a94;
+    background-color: #2c3d26;
     color: white;
 }
